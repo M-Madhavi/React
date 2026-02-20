@@ -14,3 +14,8 @@
 - code splitting
 - differential bundling - when app is hoisted , it can be opened in older version of chrome,edge etc (to suppot older browsers)
 - tree shaking
+
+
+# React
+
+React.createElement() ia an Object => when we render this to DOM =>ReactDOM.render() =>it becomes HTML

@@ -1,0 +1,13 @@
+
+const heading = React.createElement("h1",{id:"heading"},"React is here")
+const root = ReactDOM.createRoot(document.getElementById("root"))
+
+root.render(heading)
+
+//jsx - HTML or XML - like syntax
+//React Element
+const jsxheading = (
+  <h1 id="heading" className="root">
+    React!!!, using JSX
+  </h1>
+);

@@ -1,7 +1,32 @@
-import React from "react"
-import { createRoot } from "react-dom/client"
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const heading = React.createElement("h1",{id:"heading"},"React is here")
-const root = createRoot(document.getElementById("root"))
+const Title = function () {
+  return (
+    <h1 id="heading" className="root">
+      React!
+    </h1>
+  );
+};
+const jsxheading = (
+  <h1 id="heading" className="root">
+    React!!!, using JSX
+  </h1>
+);
+//React Functional component
+const HeadingComponent = () => (
+  <div id="container">
+    <h1 className="heading">React Functional Component</h1>
 
-root.render(heading)
+    <Title />
+    <pre>
+      {
+        // here you can write any js expression here
+        jsxheading
+      }
+    </pre>
+  </div>
+);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<HeadingComponent />);
