@@ -12,5 +12,5 @@
 - Compress
 - consistent Hashing
 - code splitting
-- differential bundling - when app is hoiseted , it can be opened in older version of chrome,edge etc (to suppot older browsers)
+- differential bundling - when app is hoisted , it can be opened in older version of chrome,edge etc (to suppot older browsers)
 - tree shaking
