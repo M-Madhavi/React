@@ -19,3 +19,21 @@
 # React
 
 React.createElement() ia an Object => when we render this to DOM =>ReactDOM.render() =>it becomes HTML
+
+
+#Food App
+Header
+  - Logo
+  - Nav Item
+Body
+  - Search
+  - RestaurantContainer
+     - RestaurantCard
+     - Name
+     - Menu
+     - Img
+Footer
+ - Copyright
+ - Links
+ - Address
+ - Contact       
