@@ -17,8 +17,9 @@ const jsxheading = (
 const HeadingComponent = () => (
   <div id="container">
     <h1 className="heading">React Functional Component</h1>
-
-    <Title />
+    {Title()}
+    {/* <Title></Title>
+    <Title /> */}
     <pre>
       {
         // here you can write any js expression here
