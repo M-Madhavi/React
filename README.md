@@ -37,3 +37,12 @@ Footer
  - Links
  - Address
  - Contact       
+
+
+ #React Hooks
+ State Variables
+  - They are the nothing but the nornmal javascript functions which is pre-built given by 
+
+  -Hooks
+    - useState() - superpowerful state variable in react
+    - useEffect()
