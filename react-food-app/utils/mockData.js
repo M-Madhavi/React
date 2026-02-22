@@ -1,10 +1,10 @@
-const restaurantList = [
+let restaurantList = [
   {
     id: 1,
     name: "Shah Ghouse Café",
     cuisine: "Hyderabadi",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/5/56/Shah_Ghouse_Cafe_Hyderabad.jpg",
+       image: "https://images.pexels.com/photos/7045694/pexels-photo-7045694.jpeg",
+
     rating: 4.5,
     time: "30 mins",
   },
