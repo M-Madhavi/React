@@ -94,3 +94,8 @@
   object-fit: cover;   
   border-radius: 6px;
 }
+
+.filter-btn{
+  margin: 10px;
+  cursor: pointer;
+}
