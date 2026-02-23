@@ -32,7 +32,7 @@
   font-size: 18px;
   display: flex;
   list-style-type: none;
-  gap: 20px;          /* Better spacing than margin */
+  gap: 20px; /* Better spacing than margin */
 }
 
 .nav-items li {
@@ -63,7 +63,7 @@
   flex-wrap: wrap;
   gap: 20px;
 } */
- .res-container {
+.res-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
@@ -71,7 +71,7 @@
 
 /* ===== Restaurant Card ===== */
 .res-card {
-  flex: 1 1 250px;   
+  flex: 1 1 250px;
   max-width: 300px;
   border: 1px solid #ddd;
   padding: 15px;
@@ -91,11 +91,65 @@
 .res-logo {
   width: 100%;
   height: 200px;
-  object-fit: cover;   
+  object-fit: cover;
   border-radius: 6px;
 }
 
-.filter-btn{
+.filter-btn {
   margin: 10px;
   cursor: pointer;
+}
+/* ===== Shimmer Container ===== */
+.shimmer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* ===== Shimmer Card ===== */
+.shimmer-card {
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #eee;
+}
+
+/* ===== Shimmer Image ===== */
+.shimmer-img {
+  width: 100%;
+  height: 200px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+/* ===== Shimmer Text Lines ===== */
+.shimmer-line {
+  height: 15px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.shimmer-line.small {
+  width: 60%;
+}
+
+/* ===== Shimmer Animation ===== */
+.shimmer {
+  background: linear-gradient(90deg, #eeeeee 25%, #dddddd 50%, #eeeeee 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+/* ===== Login ===== */
+.login {
+  cursor: pointer;
+  padding: 0 20px;
 }
