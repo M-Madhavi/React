@@ -5,7 +5,9 @@ import Shimmer from "../Shimmer/Shimmer";
 
 const Content = () => {
   //local State Variable
-  let [list, setList] = useState([]);
+  const [list, setList] = useState([]);
+  const [searchText, SetSearchText] = useState("");
+  const [filteredRestaurant,SetFilteredRestaurant] = useState([])
   useEffect(() => {
     console.log("component Rendered");
     fetchData();
@@ -15,14 +17,38 @@ const Content = () => {
     const data = await fetch(process.env.API_URL);
     const json = await data.json();
     setList(json?.data?.cards);
+    SetFilteredRestaurant(json?.data?.cards)
   };
 
   return !list.length ? (
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="search">Search</div>
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => {
+              SetSearchText(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              console.log(searchText);
+              const filteredRestaurant = list.filter((res) =>
+                res?.card?.card?.info?.name?.toLowerCase().includes(searchText)
+              );
+              SetFilteredRestaurant(filteredRestaurant);
+              // SetSearchText("")
+              console.log("filteredRestaurant",filteredRestaurant);
+              
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
@@ -37,7 +63,7 @@ const Content = () => {
         </button>
       </div>
       <div className="res-container">
-        {list
+        {filteredRestaurant
           .filter((res) => res?.card?.card?.info)
           .map((res, index) => {
             const randomImage =
