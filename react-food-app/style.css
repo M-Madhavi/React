@@ -153,3 +153,59 @@
   cursor: pointer;
   padding: 0 20px;
 }
+/* ===== Filter Section ===== */
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* ===== Search Box ===== */
+.search {
+  display: flex;
+  gap: 10px;
+}
+
+.search-box {
+  padding: 10px 14px;
+  width: 250px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.search-box:focus {
+  border-color: #ff5200;
+  box-shadow: 0 0 5px rgba(255, 82, 0, 0.3);
+}
+
+/* ===== Buttons ===== */
+.search button,
+.filter-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background-color: #ff5200;
+  color: white;
+}
+
+/* Hover Effect */
+.search button:hover,
+.filter-btn:hover {
+  background-color: #e64a00;
+  transform: translateY(-2px);
+}
+
+/* Active Click Effect */
+.search button:active,
+.filter-btn:active {
+  transform: scale(0.95);
+}
