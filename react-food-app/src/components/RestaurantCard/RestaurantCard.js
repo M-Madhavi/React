@@ -1,8 +1,9 @@
-
 const styleCard = {
   backgroundColor: "#f0f0f0",
 };
+
 const RestaurantCard = (props) => {
+  
   const { name, cuisine, image, rating, time } = props;
   return (
     <div className="res-card" style={styleCard}>
