@@ -7,7 +7,7 @@ const Content = () => {
   //local State Variable
   const [list, setList] = useState([]);
   const [searchText, SetSearchText] = useState("");
-  const [filteredRestaurant,SetFilteredRestaurant] = useState([])
+  const [filteredRestaurant, SetFilteredRestaurant] = useState([]);
   useEffect(() => {
     console.log("component Rendered");
     fetchData();
@@ -16,8 +16,16 @@ const Content = () => {
   const fetchData = async () => {
     const data = await fetch(process.env.API_URL);
     const json = await data.json();
-    setList(json?.data?.cards);
-    SetFilteredRestaurant(json?.data?.cards)
+    console.log(
+      "data",
+      json?.data?.cards[4].card?.card?.gridElements?.infoWithStyle?.restaurants,
+    );
+    setList(
+      json?.data?.cards[4].card?.card?.gridElements?.infoWithStyle?.restaurants,
+    );
+    SetFilteredRestaurant(
+      json?.data?.cards[4].card?.card?.gridElements?.infoWithStyle?.restaurants,
+    );
   };
 
   return !list.length ? (
@@ -38,12 +46,11 @@ const Content = () => {
             onClick={() => {
               console.log(searchText);
               const filteredRestaurant = list.filter((res) =>
-                res?.card?.card?.info?.name?.toLowerCase().includes(searchText)
+                res?.info?.name?.toLowerCase().includes(searchText),
               );
               SetFilteredRestaurant(filteredRestaurant);
-              // SetSearchText("")
-              console.log("filteredRestaurant",filteredRestaurant);
-              
+              SetSearchText("")
+              console.log("filteredRestaurant", filteredRestaurant);
             }}
           >
             Search
@@ -64,17 +71,17 @@ const Content = () => {
       </div>
       <div className="res-container">
         {filteredRestaurant
-          .filter((res) => res?.card?.card?.info)
+          .filter((res) => res?.info)
           .map((res, index) => {
             const randomImage =
               RESTAURANT_IMAGES[index % RESTAURANT_IMAGES.length];
             return (
               <RestaurantCard
-                key={res.card.card.info.id}
-                name={res.card.card.info.name}
-                cuisine={res.card.card.info.cuisines}
+                key={res.info.id}
+                name={res.info.name}
+                cuisine={res.info.cuisines}
                 image={randomImage}
-                rating={res.card.card.info.avgRating}
+                rating={res.info.avgRating}
               />
             );
           })}
