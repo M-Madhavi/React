@@ -1,6 +1,7 @@
 export const LOGO_URL =
   "https://placeit-img-1-p.cdn.aws.placeit.net/uploads/stage/stage_image/68218/optimized_product_thumb_stage.jpg";
-export const CDN_URL = "https://res.cloudinary.com/swiggy/image/upload/"
+export const CDN_URL =
+  "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 export const RESTAURANT_IMAGES = [
   "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg",
   "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
@@ -21,5 +22,5 @@ export const RESTAURANT_IMAGES = [
   "https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg",
   "https://images.pexels.com/photos/571017/pexels-photo-571017.jpeg",
   "https://images.pexels.com/photos/410648/pexels-photo-410648.jpeg",
-  "https://images.pexels.com/photos/1633525/pexels-photo-1633525.jpeg"
+  "https://images.pexels.com/photos/1633525/pexels-photo-1633525.jpeg",
 ];
