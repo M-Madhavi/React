@@ -1,5 +1,7 @@
 import { LOGO_URL } from "../../../utils/constant";
 import { useState } from "react";
+import { Link } from "react-router";
+
 const HeaderComponent = () => {
   const [btnNameReact, SetBtnNameReact] = useState("LogIn");
   console.log("whole Header Component is Rerendered when clicked on button");
@@ -10,15 +12,22 @@ const HeaderComponent = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
+          </li>
           <li>Cart</li>
           <button
             className="login"
             onClick={() => {
-              btnNameReact === "LogIn"?
-              SetBtnNameReact("LogOut"): SetBtnNameReact("LogIn");
+              btnNameReact === "LogIn"
+                ? SetBtnNameReact("LogOut")
+                : SetBtnNameReact("LogIn");
             }}
           >
             {btnNameReact}
