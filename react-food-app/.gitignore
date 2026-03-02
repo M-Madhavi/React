@@ -2,3 +2,5 @@
 /dist
 /.parcel_cache
 .env
+sshkey
+sshkey.pub
