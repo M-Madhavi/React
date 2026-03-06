@@ -49,3 +49,24 @@ Footer
 # 2 types of Routing
 - client side routing
 - server side routing
+
+# Render and commit phase
+
+- Parent constructor
+- Parent Render
+
+# Batching render Phase
+
+  - First child constructor
+  - First child Render
+  - Second Child constructor
+  - Second child Render
+  
+# <DOM UPDATED - IN SINGLE BATCH>
+
+  - First Child ComponentDidMount
+  - Second Child ComponentDid Mount
+
+-Parent ComponrntDidMount
+  
+
