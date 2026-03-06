@@ -2,6 +2,7 @@ import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import { useState, useEffect } from "react";
 import { RESTAURANT_IMAGES } from "../../../utils/constant";
 import Shimmer from "../Shimmer/Shimmer";
+import { Link } from 'react-router'
 
 const Content = () => {
   //local State Variable
@@ -72,17 +73,20 @@ const Content = () => {
       <div className="res-container">
         {filteredRestaurant
           .filter((res) => res?.info)
-          .map((res, index) => {
-            const randomImage =
-              RESTAURANT_IMAGES[index % RESTAURANT_IMAGES.length];
-            return (
+          .map((res) => {
+                       return (
+              <Link
+              key={res.info.id}
+              className="res-link"
+              to={"/restaurants/" + res.info.id}
+            >
               <RestaurantCard
-                key={res.info.id}
                 name={res.info.name}
                 cuisine={res.info.cuisines}
-                image={randomImage}
+                image={res.info.cloudinaryImageId}
                 rating={res.info.avgRating}
               />
+            </Link>
             );
           })}
       </div>
