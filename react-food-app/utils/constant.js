@@ -25,3 +25,5 @@ export const RESTAURANT_IMAGES = [
   "https://images.pexels.com/photos/410648/pexels-photo-410648.jpeg",
   "https://images.pexels.com/photos/1633525/pexels-photo-1633525.jpeg",
 ];
+export const MENU_API = (resId) =>
+  `https://corsproxy.io/?https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9352403&lng=77.624532&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`;

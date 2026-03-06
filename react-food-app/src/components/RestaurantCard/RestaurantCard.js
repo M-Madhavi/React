@@ -1,13 +1,17 @@
+import { CDN_URL } from "../../../utils/constant";
+
+
 const styleCard = {
   backgroundColor: "#f0f0f0",
 };
 
 const RestaurantCard = (props) => {
-  
+
   const { name, cuisine, image, rating, time } = props;
   return (
     <div className="res-card" style={styleCard}>
-      <img alt="res-logo" src={image} className="res-logo"></img>
+      <img alt="res-logo" src={CDN_URL
+        + image} className="res-logo"></img>
       <h4>{name}</h4>
       <h4>{cuisine}</h4>
       <h5>{rating}</h5>
