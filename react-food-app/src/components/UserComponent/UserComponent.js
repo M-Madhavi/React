@@ -7,9 +7,9 @@ const User = () =>{
         alt="profile"
       />
 
-            <h2>Name: MadhaVi</h2>
-            <h3>Location: Hyderabad</h3>
-            <h4>Contact: madhavim018@gmail.com</h4>
+            <h2>Name: M</h2>
+            <h3>Location: locaTION</h3>
+            <h4>Contact: mv@gmail.com</h4>
 
         </div>
     )
