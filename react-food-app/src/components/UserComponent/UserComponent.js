@@ -8,7 +8,7 @@ const User = () =>{
       />
 
             <h2>Name: M</h2>
-            <h3>Location: locaTION</h3>
+            <h3>Location: location</h3>
             <h4>Contact: mv@gmail.com</h4>
 
         </div>
