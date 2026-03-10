@@ -1,8 +1,9 @@
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import { useState, useEffect } from "react";
-import { RESTAURANT_IMAGES } from "../../../utils/constant";
 import Shimmer from "../Shimmer/Shimmer";
 import { Link } from 'react-router'
+import useOnlineStatus from "../../../utils/useOnlineStatus";
+
 
 const Content = () => {
   //local State Variable
@@ -28,8 +29,11 @@ const Content = () => {
       json?.data?.cards[4].card?.card?.gridElements?.infoWithStyle?.restaurants,
     );
   };
-
-  return !list.length ? (
+  const onlineStatus = useOnlineStatus()
+  console.log("online-------------",onlineStatus)
+  if (onlineStatus === false) {
+    return (<h1>Ooops!!! you are offline</h1>);
+  } return !list.length ? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -74,19 +78,19 @@ const Content = () => {
         {filteredRestaurant
           .filter((res) => res?.info)
           .map((res) => {
-                       return (
+            return (
               <Link
-              key={res.info.id}
-              className="res-link"
-              to={"/restaurants/" + res.info.id}
-            >
-              <RestaurantCard
-                name={res.info.name}
-                cuisine={res.info.cuisines}
-                image={res.info.cloudinaryImageId}
-                rating={res.info.avgRating}
-              />
-            </Link>
+                key={res.info.id}
+                className="res-link"
+                to={"/restaurants/" + res.info.id}
+              >
+                <RestaurantCard
+                  name={res.info.name}
+                  cuisine={res.info.cuisines}
+                  image={res.info.cloudinaryImageId}
+                  rating={res.info.avgRating}
+                />
+              </Link>
             );
           })}
       </div>
