@@ -11,10 +11,14 @@
     "test": "jest"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.27",
     "parcel": "^2.16.4",
-    "process": "^0.11.10"
+    "postcss": "^8.5.8",
+    "process": "^0.11.10",
+    "tailwindcss": "^4.2.1"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.2.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router-dom": "^7.13.1"
