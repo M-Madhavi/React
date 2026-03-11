@@ -8,9 +8,9 @@ const HeaderComponent = () => {
   console.log("whole Header Component is Rerendered when clicked on button");
   const onlineStatus = useOnlineStatus()
   return (
-    <div className="header">
+    <div className="flex justify-between">
       <div>
-        <img className="logo" src={LOGO_URL} />
+        <img className="w-25" src={LOGO_URL} />
       </div>
       <div className="nav-items">
         <ul>
