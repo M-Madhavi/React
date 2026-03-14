@@ -1,4 +1,4 @@
-import RestaurantCard from "../RestaurantCard/RestaurantCard";
+import RestaurantCard, { withLabel } from "../RestaurantCard/RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "../Shimmer/Shimmer";
 import { Link } from 'react-router'
@@ -10,8 +10,9 @@ const Content = () => {
   const [list, setList] = useState([]);
   const [searchText, SetSearchText] = useState("");
   const [filteredRestaurant, SetFilteredRestaurant] = useState([]);
+  const RestaurantCardWithLabel = withLabel(RestaurantCard)
   useEffect(() => {
-    console.log("component Rendered");
+    console.log("component Rendered- ListOfRestaurants", list);
     fetchData();
   }, []);
 
@@ -30,7 +31,7 @@ const Content = () => {
     );
   };
   const onlineStatus = useOnlineStatus()
-  console.log("online-------------",onlineStatus)
+  console.log("online-------------", onlineStatus)
   if (onlineStatus === false) {
     return (<h1>Ooops!!! you are offline</h1>);
   } return !list.length ? (
@@ -84,12 +85,18 @@ const Content = () => {
                 className="res-link"
                 to={"/restaurants/" + res.info.id}
               >
-                <RestaurantCard
-                  name={res.info.name}
-                  cuisine={res.info.cuisines}
-                  image={res.info.cloudinaryImageId}
-                  rating={res.info.avgRating}
-                />
+                {/* {if the rating is more than 4.5 add a promoted label} */
+                  (res.info.avgRating > 4.5) ? <RestaurantCardWithLabel name={res.info.name}
+                    cuisine={res.info.cuisines}
+                    image={res.info.cloudinaryImageId}
+                    rating={res.info.avgRating} /> : <RestaurantCard
+                    name={res.info.name}
+                    cuisine={res.info.cuisines}
+                    image={res.info.cloudinaryImageId}
+                    rating={res.info.avgRating}
+                  />
+                }
+
               </Link>
             );
           })}
