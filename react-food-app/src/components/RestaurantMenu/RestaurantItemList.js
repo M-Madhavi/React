@@ -33,13 +33,10 @@ const RestaurantItemList = ({ itemList }) => {
 
                         </div>
 
-
                         <div className="w-28 h-28 flex-shrink-0 relative rounded-lg overflow-hidden">
-
                             <button className="absolute px-4 bottom-2 left-1/2 -translate-x-1/2 bg-black text-cyan-50 font-semibold text-sm  py-1 rounded-sm shadow-md hover:bg-green-600 transition" style={{ padding: "6px" }}>
                                 Add +
                             </button>
-
                             <img
                                 src={imageUrl}
                                 alt={item.card.info.name}
@@ -48,7 +45,6 @@ const RestaurantItemList = ({ itemList }) => {
                                     e.target.src = fallbackImage;
                                 }}
                             />
-
                         </div>
 
                     </div>
