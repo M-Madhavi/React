@@ -7,7 +7,6 @@ const RestaurantCategoryAccordian = ({ data }) => {
         console.log("clickeddddd")
         setShowItems(!showItems)
     }
-
     return (
         <div className="flex justify-center" style={{ margin: '20px' }}>
             <div className="w-6/12 bg-yellow-200 shadow-md rounded-lg px-6 py-4 items-center cursor-pointer hover:bg-gray-50 transition" style={{ padding: '18px' }}>
@@ -22,9 +21,7 @@ const RestaurantCategoryAccordian = ({ data }) => {
                 {/* {Accordion Body} */}
                 {showItems && <RestaurantItemList itemList={data.itemCards} />}
             </div>
-
         </div>
-
     );
 };
 
