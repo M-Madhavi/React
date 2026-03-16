@@ -3,18 +3,26 @@ import Shimmer from "../Shimmer/Shimmer";
 import { CDN_URL } from "../../../utils/constant";
 import { useParams } from 'react-router';
 import useRestaurantMenu from "../../../utils/useRestaurantMenu";
-
+import RestaurantCategoryAccordian from "./RestaurantCategoryAccordian";
 const RestaurantMenu = () => {
-  const {resId} = useParams()
-  const { restInfo, restName } = useRestaurantMenu(resId);
-
+  const { resId } = useParams()
+  const { restInfo, restName, apiResponse } = useRestaurantMenu(resId);
+  let categoryItems = []
+  if (apiResponse) {
+    categoryItems = apiResponse.filter(c => c.card?.card?.['@type'] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+    console.log("categoryItems", categoryItems)
+  }
   if (!restInfo) return <Shimmer />;
 
   return (
     <div className="menu-container">
       <h1 className="menu-heading">Our Menu</h1>
       <h1 className="menu-heading">{restName}</h1>
-
+      <div className=""> {categoryItems.map((c) => {
+        return <RestaurantCategoryAccordian key={c.card?.card?.title} data={c.card?.card} />
+      })}
+      </div>
+      {/* 
       <div className="card-grid">
         {restInfo
           .filter((item) => item?.card?.info)
@@ -46,7 +54,7 @@ const RestaurantMenu = () => {
               </div>
             );
           })}
-      </div>
+      </div> */}
     </div>
   );
 };
