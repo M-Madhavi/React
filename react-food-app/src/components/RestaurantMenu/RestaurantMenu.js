@@ -1,12 +1,15 @@
 import "./RestaurantMenu.css";
 import Shimmer from "../Shimmer/Shimmer";
+import { useState } from "react";
 import { CDN_URL } from "../../../utils/constant";
 import { useParams } from 'react-router';
 import useRestaurantMenu from "../../../utils/useRestaurantMenu";
 import RestaurantCategoryAccordian from "./RestaurantCategoryAccordian";
+
 const RestaurantMenu = () => {
   const { resId } = useParams()
   const { restInfo, restName, apiResponse } = useRestaurantMenu(resId);
+  const [showIndex, setShowIndex] = useState(null)
   let categoryItems = []
   if (apiResponse) {
     categoryItems = apiResponse.filter(c => c.card?.card?.['@type'] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
@@ -18,8 +21,11 @@ const RestaurantMenu = () => {
     <div className="menu-container">
       <h1 className="menu-heading">Our Menu</h1>
       <h1 className="menu-heading">{restName}</h1>
-      <div className=""> {categoryItems.map((c) => {
-        return <RestaurantCategoryAccordian key={c.card?.card?.title} data={c.card?.card} />
+      <div className=""> {categoryItems.map((c, index) => {
+        return <RestaurantCategoryAccordian key={c.card?.card?.title} data={c.card?.card} showItems={index === showIndex ? true : false}
+          setShowIndex={() =>
+            setShowIndex(prev => prev === index ? null : index)
+          } />
       })}
       </div>
       {/* 
