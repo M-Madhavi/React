@@ -1,11 +1,13 @@
 import { useState } from "react";
 import RestaurantItemList from "./RestaurantItemList";
 
-const RestaurantCategoryAccordian = ({ data }) => {
-    const [showItems, setShowItems] = useState(false)
+const RestaurantCategoryAccordian = ({ data, showItems, setShowIndex }) => {
+    //controlled Component by RestaurantMenu
+    const [closeAccordian, setCloseAccordian] = useState(false)
     const handleClick = () => {
-        console.log("clickeddddd")
-        setShowItems(!showItems)
+        //modify the sate variable from child to parent component
+        setShowIndex()
+        setCloseAccordian(!closeAccordian)
     }
     return (
         <div className="flex justify-center" style={{ margin: '20px' }}>
@@ -15,7 +17,7 @@ const RestaurantCategoryAccordian = ({ data }) => {
                         {data.title} ({data.itemCards.length})
                     </span>
                     <span className="text-lg">
-                        {showItems ?"▲":"▼"}
+                        {showItems ? "▲" : "▼"}
                     </span>
                 </div>
                 {/* {Accordion Body} */}
