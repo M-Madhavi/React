@@ -1,7 +1,6 @@
 import "./RestaurantMenu.css";
 import Shimmer from "../Shimmer/Shimmer";
 import { useState } from "react";
-import { CDN_URL } from "../../../utils/constant";
 import { useParams } from 'react-router';
 import useRestaurantMenu from "../../../utils/useRestaurantMenu";
 import RestaurantCategoryAccordian from "./RestaurantCategoryAccordian";
