@@ -1,4 +1,4 @@
-import { CDN_URL } from "../../../utils/constant";
+import { CDN_URL, RESTAURANT_IMAGES } from "../../../utils/constant";
 
 
 const styleCard = {
@@ -8,10 +8,20 @@ const styleCard = {
 const RestaurantCard = (props) => {
 
   const { name, cuisine, image, rating, time } = props;
+  const fallbackImage =
+    RESTAURANT_IMAGES[Math.floor(Math.random() * RESTAURANT_IMAGES.length)];
+  console.log("random", fallbackImage)
+  const imageUrl = image
+    ? CDN_URL + image
+    : fallbackImage;
   return (
     <div className="res-card" style={styleCard}>
-      <img alt="res-logo" src={CDN_URL
-        + image} className="res-logo"></img>
+      <img alt="res-logo"
+        src={imageUrl}
+        className="res-logo"
+        onError={(e) => {
+          e.target.src = fallbackImage;
+        }}></img>
       <h4>{name}</h4>
       <h4>{cuisine}</h4>
       <h5>{rating}</h5>
