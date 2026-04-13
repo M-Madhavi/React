@@ -1,8 +1,9 @@
 import RestaurantCard, { withLabel } from "../RestaurantCard/RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "../Shimmer/Shimmer";
 import { Link } from 'react-router'
 import useOnlineStatus from "../../../utils/useOnlineStatus";
+import UserContext from "../../../utils/UserContex";
 
 
 const Content = () => {
@@ -11,6 +12,7 @@ const Content = () => {
   const [searchText, SetSearchText] = useState("");
   const [filteredRestaurant, SetFilteredRestaurant] = useState([]);
   const RestaurantCardWithLabel = withLabel(RestaurantCard)
+  const { loggedInUser,setUserName } = useContext(UserContext)
   useEffect(() => {
     console.log("component Rendered- ListOfRestaurants", list);
     fetchData();
@@ -19,10 +21,10 @@ const Content = () => {
   const fetchData = async () => {
     const data = await fetch(process.env.API_URL);
     const json = await data.json();
-    console.log(
-      "data",
-      json?.data?.cards[4].card?.card?.gridElements?.infoWithStyle?.restaurants,
-    );
+    // console.log(
+    //   "data",
+    //   json?.data?.cards[4].card?.card?.gridElements?.infoWithStyle?.restaurants,
+    // );
     setList(
       json?.data?.cards[4].card?.card?.gridElements?.infoWithStyle?.restaurants,
     );
@@ -74,6 +76,12 @@ const Content = () => {
         >
           Top Rated Restaurants
         </button>
+      </div>
+      <div className="" style={{ marginBottom: '12px' }}>
+        <label style={{ marginRight: '12px' }}>UserName</label>
+        <input className="border border-black "
+          style={{ padding: '4px' }} value={loggedInUser}
+          onChange={(e) => setUserName(e.target.value)}></input>
       </div>
       <div className="res-container">
         {filteredRestaurant
