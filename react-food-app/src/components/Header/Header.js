@@ -1,12 +1,15 @@
 import { LOGO_URL } from "../../../utils/constant";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router";
 import useOnlineStatus from "../../../utils/useOnlineStatus";
+import UserContext from "../../../utils/UserContex";
 
 const HeaderComponent = () => {
   const [btnNameReact, SetBtnNameReact] = useState("LogIn");
-  console.log("whole Header Component is Rerendered when clicked on button");
+  // console.log("whole Header Component is Rerendered when clicked on button");
   const onlineStatus = useOnlineStatus()
+  const { loggedInUser } = useContext(UserContext)
+
   return (
     <div className="flex justify-between">
       <div>
@@ -14,7 +17,7 @@ const HeaderComponent = () => {
       </div>
       <div className="nav-items">
         <ul>
-        <li> Online Status :{onlineStatus ? "✅" : "🔴"}
+          <li> Online Status :{onlineStatus ? "✅" : "🔴"}
           </li>
           <li>
             <Link to="/">Home</Link>
@@ -25,7 +28,7 @@ const HeaderComponent = () => {
           <li>
             <Link to="/contact">Contact Us</Link>
           </li>
-                    <li>
+          <li>
             <Link to="/grocery">Grocery</Link>
           </li>
           <li>Cart</li>
@@ -39,6 +42,7 @@ const HeaderComponent = () => {
           >
             {btnNameReact}
           </button>
+          <li>{loggedInUser}</li>
         </ul>
       </div>
     </div>
