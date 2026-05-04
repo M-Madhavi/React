@@ -68,5 +68,14 @@ Footer
   - Second Child ComponentDid Mount
 
 -Parent ComponrntDidMount
+
+# Redux Toolkit
+  
+  - Install @reduxjs/toolkit and react-redux
+  - Build Our Store
+  - Connect our store to our App
+  - Create a Cart Slice
+  - Dispatch (Action)
+  - Selector
   
 
