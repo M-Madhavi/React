@@ -20,7 +20,7 @@ const useRestaurantMenu = (resId) => {
             json?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card
                 ?.card?.itemCards;
         console.log("res", items);
-        console.log("MENU", json?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
+        // console.log("MENU", json?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
         setApiResponse(json?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
         setResInfo(items);
         setRestName(json?.data?.cards[0].card.card.text)
